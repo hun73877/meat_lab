@@ -1,0 +1,59 @@
+<androidx.core.widget.NestedScrollView
+        android:background="@color/white"
+        android:scrollbars="none"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.meat_lab.Tab_myLab.Split_My_Lab_Tab.Fragment_My_Note">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+<!--        <TextView
+                android:text="나의 요리 연구일지"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:textSize="20dp"/>-->
+
+        <LinearLayout
+                android:gravity="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="30dp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/logo_7"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp">
+
+            </ImageView>
+
+            <TextView
+                    android:text="나의 요리 연구일지"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:gravity="center_vertical"
+                    android:textSize="20dp"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/note_list"
+                tools:listitem="@layout/item_list_note"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

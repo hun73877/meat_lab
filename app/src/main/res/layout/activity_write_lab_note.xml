@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/write_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        tools:context="com.example.meat_lab.Tab_myLab.Activity_Write_Lab_Note">
+
+    <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll_view_note_write"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginBottom="30dp"
+                    android:text="요리 일지"
+                    android:textColor="@color/bg_main"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/item_bg_card"
+                    android:elevation="10dp"
+                    android:orientation="vertical">
+
+                <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/image_view_pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:background="@drawable/item_image_round_corner_1"
+                        android:visibility="gone" />
+
+                <!--이미지 선택-->
+                <FrameLayout
+                        android:id="@+id/write_note_thumb"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:background="@drawable/item_image_round_corner_1">
+
+                    <androidx.viewpager.widget.ViewPager
+                            android:id="@+id/write_page_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp"
+                            android:background="@color/gray" />
+
+                    <!--                    <ImageView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="300dp"
+                                                android:scaleType="centerCrop"
+                                                android:src="@color/gray" />-->
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+
+                        <TextView
+                                android:id="@+id/note_write_select_image"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/item_text_title_1"
+                                android:text="이미지 선택"
+                                android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|bottom"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+
+                        <TextView
+                                android:id="@+id/note_write_select_thumb"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/item_text_title_1_2"
+                                android:text="썸네일 선택"
+                                android:textColor="@color/white"
+                                android:visibility="gone"
+                                /> <!--#E91E63-->
+
+                        <TextView
+                                android:visibility="gone"
+                                android:id="@+id/note_write_delete_image"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/item_text_title_1"
+                                android:layout_marginRight="10dp"
+                                android:text="삭제"
+                                android:textColor="#FFBED5"/> <!--#E91E63-->
+
+                        <TextView
+                                android:visibility="gone"
+                                android:id="@+id/number_indicator"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/item_text_title_1"
+                                android:textColor="@color/white"
+                                />
+
+                        <!--
+                                <LinearLayout
+                                        android:orientation="vertical"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+
+                                    <TextView
+                                            android:visibility="gone"
+                                            android:layout_gravity="right"
+                                            android:id="@+id/number_indicator"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/item_text_title_1"
+                                            android:textColor="@color/white" />
+
+                                    <TextView
+                                            android:text="삭제"
+                                            android:visibility="gone"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:id="@+id/note_write_delete_image"
+                                            android:background="@drawable/item_text_title_1"
+                                            android:textColor="#FFBED5" /> &lt;!&ndash;#E91E63&ndash;&gt;
+
+                                </LinearLayout>-->
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+                <!--요리명 작성-->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginTop="50dp"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="5dp"
+                            android:text="요리명: "
+                            android:textColor="@color/bg_main" />
+
+                    <EditText
+                            android:id="@+id/write_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:hint="_"
+                            android:textSize="18dp" />
+
+                </LinearLayout>
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.1dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="@color/bg_main" />
+                <!--요리명 작성 끝-->
+
+
+                <!--소요시간-->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="5dp"
+                            android:text="소요시간: "
+                            android:textColor="@color/bg_main" />
+
+                    <EditText
+                            android:id="@+id/cook_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@color/white"
+                            android:gravity="right"
+                            android:hint="_"
+                            android:inputType="number"
+                            android:paddingHorizontal="7dp"
+                            android:textSize="18dp" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="15dp"
+                            android:text="(분)"
+                            android:textColor="@color/bg_main" />
+
+
+                </LinearLayout>
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.1dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="@color/bg_main" />
+
+                <!--소요시간 끝-->
+
+
+                <!--육류 분류-->
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="육류 선택"
+                            android:textColor="@color/bg_main"
+                            android:textSize="18dp" />
+
+                    <TextView
+                            android:id="@+id/select_meat_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="1가지 선택됨"
+                            android:textColor="@color/black"
+                            android:textSize="12dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:id="@+id/select_meat_pork"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@drawable/item_selector_on"
+                            android:text="돼지"
+                            android:textColor="@color/white"
+                            android:textSize="20dp" />
+
+                    <TextView
+                            android:id="@+id/select_meat_beef"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="20dp"
+                            android:background="@drawable/item_selector_off"
+                            android:text="소"
+                            android:textColor="@color/white"
+                            android:textSize="20dp" />
+
+                    <TextView
+                            android:id="@+id/select_meat_chicken"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="20dp"
+                            android:background="@drawable/item_selector_off"
+                            android:text="닭"
+                            android:textColor="@color/white"
+                            android:textSize="20dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:id="@+id/select_meat_salmon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="25dp"
+                            android:background="@drawable/item_selector_off"
+                            android:text="연어"
+                            android:textColor="@color/white"
+                            android:textSize="20dp" />
+
+                    <TextView
+                            android:id="@+id/select_meat_another"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/item_selector_off"
+                            android:text="기타"
+                            android:textColor="@color/white"
+                            android:textSize="20dp" />
+
+                </LinearLayout>
+
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.1dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="@color/bg_main" />
+                <!--육류 분류 끝-->
+
+                <!--부위명 작성-->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="5dp"
+                            android:text="부위: "
+                            android:textColor="@color/bg_main" />
+
+                    <EditText
+                            android:id="@+id/meat_part"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:hint="_"
+                            android:textSize="18dp" />
+
+                </LinearLayout>
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.1dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="@color/bg_main" />
+                <!--부위명 작성 끝-->
+
+
+                <!-- 도구 선택-->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="도구"
+                            android:textColor="@color/bg_main"
+                            android:textSize="18dp" />
+
+                    <TextView
+                            android:id="@+id/select_tool_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="1가지 선택됨"
+                            android:textColor="@color/black"
+                            android:textSize="12dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+                        <TextView
+                                android:id="@+id/select_tool_pan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="35dp"
+                                android:background="@drawable/item_selector_on"
+                                android:text="후라이팬"
+                                android:textColor="@color/white"
+                                android:textSize="20dp" />
+
+                        <TextView
+                                android:id="@+id/select_tool_oven"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="35dp"
+                                android:background="@drawable/item_selector_off"
+                                android:text="오븐"
+                                android:textColor="@color/white"
+                                android:textSize="20dp" />
+
+                        <TextView
+                                android:id="@+id/select_tool_fryer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/item_selector_off"
+                                android:text="튀김기"
+                                android:textColor="@color/white"
+                                android:textSize="20dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal">
+
+                        <TextView
+                                android:id="@+id/select_tool_air_fryer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="35dp"
+                                android:background="@drawable/item_selector_off"
+                                android:text="에어프라이"
+                                android:textColor="@color/white"
+                                android:textSize="20dp" />
+
+                        <TextView
+                                android:id="@+id/select_tool_suvid"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="35dp"
+                                android:background="@drawable/item_selector_off"
+                                android:text="수비드"
+                                android:textColor="@color/white"
+                                android:textSize="20dp" />
+
+                        <TextView
+                                android:id="@+id/select_tool_another"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/item_selector_off"
+                                android:text="기타"
+                                android:textColor="@color/white"
+                                android:textSize="20dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.1dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="@color/bg_main" />
+                <!-- 도구 선택 끝-->
+
+                <!--식재료 작성-->
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="식재료"
+                        android:textColor="@color/bg_main"
+                        android:textSize="18dp" />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:orientation="horizontal">
+
+                    <!--<TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="5dp"
+                            android:text="조미료: "
+                            android:textColor="@color/bg_main" />-->
+
+                    <EditText
+                            android:id="@+id/ingredients"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:hint="ex _ 소금, 후추, 버터, 양파, 마늘"
+                            android:textSize="18dp" />
+
+                </LinearLayout>
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.1dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="@color/bg_main" />
+                <!--식재료 작성 끝-->
+
+                <!--요리 설명 및 후기-->
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="요리 설명 및 후기"
+                        android:textColor="@color/bg_main"
+                        android:textSize="18dp" />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:orientation="horizontal">
+
+                    <EditText
+                            android:id="@+id/cooking_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:hint="_"
+                            android:textSize="18dp" />
+
+                </LinearLayout>
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.1dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="45dp"
+                        android:background="@color/bg_main" />
+                <!--요리 설명 및 후기 끝-->
+
+
+                <!--요리 절차 작성 시작-->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:text="요리 절차"
+                            android:textColor="@color/bg_main"
+                            android:textSize="18dp" />
+
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="vertical">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:text="↑.↓ 드래그(〓) 순서 변경"
+                                android:textColor="@color/bg_main"
+                                android:textSize="9dp" />
+
+                        <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0.1dp"
+                                android:layout_marginHorizontal="3dp"
+                                android:background="@color/bg_main" />
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:text="←.→ 스와이프: 항목 삭제"
+                                android:textColor="@color/bg_main"
+                                android:textSize="9dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/item_note_discription" />
+
+                <ImageView
+                        android:id="@+id/add_note_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/item_add_button"
+                        android:gravity="center"
+                        android:src="@drawable/ic_add_2"
+                        android:textSize="20dp" />
+
+
+                <!--                <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0.1dp"
+                                        android:layout_marginHorizontal="5dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="30dp"
+                                        android:background="@color/bg_main" />-->
+                <!--요리 절차 작성 끝-->
+
+
+            </LinearLayout>
+
+            <TextView
+                    android:id="@+id/write_done_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="150dp"
+                    android:background="@drawable/item_selector_on"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="기록 완료"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:orientation="horizontal">
+
+        <ImageView
+                android:id="@+id/button_save_temporary"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginVertical="10dp"
+                android:src="@drawable/ic_save"
+                android:visibility="gone" />
+
+        <ImageView
+                android:id="@+id/button_close"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_close" />
+
+    </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/note_write_done_message"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:lottie_loop="true" />
+
+</FrameLayout>

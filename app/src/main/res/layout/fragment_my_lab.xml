@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.example.meat_lab.Tab_myLab.Fragment_My_Lab">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+        <ImageView
+                android:padding="5dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/logo_4" />
+
+        <TextView
+                android:text="Private Lab"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@color/bg_main"
+                android:gravity="center_vertical"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+        <TextView
+                android:id="@+id/my_profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="7dp"
+                android:text="NAME"
+                android:textColor="@color/black" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/my_profile_image"
+                android:layout_marginRight="7dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/logo_7"
+                android:layout_gravity="center"
+                app:civ_border_color="@color/bg_main"
+                app:civ_border_overlay="true"
+                app:civ_border_width="0.1dp"
+                app:civ_circle_background_color="@color/gray" />
+
+        <ImageView
+                android:layout_gravity="center"
+                android:id="@+id/button_write_note"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_add" />
+
+
+    </LinearLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/bg_main" />
+
+    <!--app:tabMode="scrollable"-->
+    <com.google.android.material.tabs.TabLayout
+            android:background="@color/white"
+            android:id="@+id/my_lab_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabSelectedTextColor="@color/gray"
+            app:tabIndicatorColor="@color/bg_main"
+            app:tabTextColor="@color/black"
+            app:tabIndicatorHeight="2.5dp"
+            app:tabGravity="fill"
+            app:tabMode="fixed" />
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/gray" />
+
+    <androidx.viewpager.widget.ViewPager
+            android:id="@+id/my_lab_pager"
+            android:layout_weight=" 1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+
+</LinearLayout>
